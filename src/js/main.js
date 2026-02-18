@@ -1,13 +1,15 @@
 // ===== Navbar scroll shadow =====
 const header = document.querySelector('.header');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 10) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
+if (header) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+}
 
 // ===== Mobile menu toggle =====
 const toggle = document.querySelector('.nav__toggle');
@@ -29,10 +31,17 @@ if (toggle) {
 // ===== Smooth‑scroll for anchor links =====
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', (e) => {
-    const target = document.querySelector(anchor.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
+    const href = anchor.getAttribute('href');
+    if (href && href.length > 1) {
+      try {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      } catch (_) {
+        // ignore invalid selectors
+      }
     }
   });
 });
