@@ -12,6 +12,7 @@
 │   └── js/
 │       └── main.js     # 互動腳本
 ├── build.js            # Bun 建置腳本
+├── serve.js            # Bun 本地開發伺服器
 ├── package.json        # 專案設定
 ├── dist/               # 建置輸出（自動產生，已加入 .gitignore）
 │   ├── index.html
@@ -32,9 +33,15 @@
 curl -fsSL https://bun.sh/install | bash
 ```
 
-### 開發預覽
+### 開發預覽（啟動本地伺服器）
 
-直接在瀏覽器中開啟 `index.html` 即可預覽開發版本。
+```bash
+bun run dev
+```
+
+啟動後在瀏覽器開啟 **http://localhost:3000** 即可預覽網頁。
+
+> 也可以直接用瀏覽器開啟 `index.html` 檔案來預覽。
 
 ### 建置（最小化）
 
@@ -43,6 +50,14 @@ bun run build
 ```
 
 建置後的檔案會輸出至 `dist/` 目錄，包含最小化的 HTML、CSS 和 JS。
+
+### 預覽建置結果
+
+```bash
+bun run preview
+```
+
+此指令會先執行建置，然後啟動伺服器預覽 `dist/` 目錄中的最小化版本。
 
 ## ✨ 功能特色
 
