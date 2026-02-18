@@ -1,0 +1,12 @@
+{
+  "name": "cloudflow-saas",
+  "version": "1.0.0",
+  "description": "CloudFlow SaaS 服務首頁",
+  "scripts": {
+    "dev": "bun run serve.js",
+    "build": "bun run build.js",
+    "preview": "bun run build.js && cd dist && bun run ../serve.js"
+  },
+  "devDependencies": {},
+  "license": "MIT"
+}
